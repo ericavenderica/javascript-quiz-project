@@ -35,4 +35,18 @@ class Quiz {
             return true;
         }
     }
+    filterQuestionsByDifficulty(difficulty){
+        if(difficulty < 1 || difficulty > 3 || typeof difficulty !== 'number'){
+            return;
+        }
+        
+       return this.questions = this.questions.filter (question => question.difficulty === difficulty)
+         
+
+    }
+    averageDifficulty(){
+        
+    const totalDificulty = this.questions.reduce((sum, question) => sum + question.difficulty, 0)
+    return totalDificulty / this.questions.length
+    }
 }
