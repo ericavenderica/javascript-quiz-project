@@ -14,10 +14,12 @@ class Quiz {
         this.currentQuestionIndex += 1;
     }
     shuffleQuestions(){
-        for(let i = this.questions.length; i > 0 ; i--) {
-            const random = Math.floor(Math.random() * (i + 1));
-            [this.questions[i], this.questions[random]] = [this.questions[random], this.questions[i]];
-        }
+       for (let i = this.questions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = this.questions[i];
+      this.questions[i] = this.questions[j];
+      this.questions[j] = temp;
+    }
     }
 
      checkAnswer(answer) {
@@ -50,3 +52,4 @@ class Quiz {
     return totalDificulty / this.questions.length
     }
 }
+
